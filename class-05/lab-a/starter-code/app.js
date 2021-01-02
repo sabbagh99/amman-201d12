@@ -62,10 +62,10 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-    var sum = a + b + c;
-    var multi = a * b * c;
+    var sum1 = sum(sum(a, b)[0], c)[0];
+    var multi1 = multiply(multiply(a, b)[0], c)[0];
     var array = [
-        sum, multi, "4 and 7 and 5 sum to 16.", "The product of 4 and 7 and 5 is 140."
+        sum1, multi1, "4 and 7 and 5 sum to 16.", "The product of 4 and 7 and 5 is 140."
     ];
     return array;
 }
@@ -89,9 +89,12 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-    var sum = 2 + 3 + 4;
+
+    var sum1 = 0;
+    for (var i = 0; i < sumArr.length; i++)
+        sum1 = sum(sum1, sumArr[i])[0];
     var array = [
-        sum, "2,3,4 was passed in as an array of numbers, and 9 is their sum."
+        sum1, "2,3,4 was passed in as an array of numbers, and 9 is their sum."
     ];
     return array;
 }
@@ -114,9 +117,12 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-    var mult = 2 * 3 * 4;
+    var multArray = 1;
+    for (var i = 0; i< multArr.length; i++) {
+        multArray = multiply(multArray, multArr[i])[0];
+    }
     var array = [
-        mult, "The numbers 2,3,4 have a product of 24."
+        multArray, "The numbers 2,3,4 have a product of 24."
     ];
     return array;
 }
@@ -146,11 +152,16 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-    var mult = 1 * 2 * 3 * 4 * 5;
+    var totalDynamicArray = 1;
+    for (let i = 0; i < dynamicArray.length; i++) {
+        totalDynamicArray = multiply(totalDynamicArray, dynamicArray[i])[0];
+    }
     var array = [
-        mult, "The numbers 1,2,3,4,5 have a product of 120."
+        totalDynamicArray,
+        "The numbers 1,2,3,4,5 have a product of 120."
     ];
     return array;
+
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
